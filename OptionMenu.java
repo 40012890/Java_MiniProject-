@@ -1,10 +1,10 @@
-
+//option menu
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.*;
 import java.io.IOException;
 
-public class OptionMenu extends Account {
+public class MenuOption extends UserAccount {
   Scanner menuInput= new Scanner(System.in);
   DecimalFormat moneyFormat=new DecimalFormat("'$'###,##0.00");
 
@@ -19,40 +19,40 @@ public class OptionMenu extends Account {
 
          System.out.println("Welcome to the ATM Project!");
          System.out.println("Enter your customer Number");
-         setCustomerNumber(menuInput.nextInt());
+         setcustomerIDNumber(menuInput.nextInt());
 
          System.out.print("Enter your PIN Number: ");
-         setPinNumber(menuInput.nextInt());
+         setpinCodeNumber(menuInput.nextInt());
          }
          catch (Exception e) {
            System.out.println("\n"+ "Invalid Character(s). Only Numbers."+"\n");
            x=2;
          }
          /*for(Map.Entry<Integer,Integer> it : data.entrySet()){
-           if(it.getkey()==getCustomerNumber() && it.getValue()==getPinNumber){
-             getAccountType();
+           if(it.getkey()==getcustomerIDNumber() && it.getValue()==getpinCodeNumber){
+             getUserAccountType();
            }
          }*/
-         int cn=getCustomerNumber();
-         int pn=getPinNumber();
+         int cn=getcustomerIDNumber();
+         int pn=getpinCodeNumber();
          if(data.containsKey(cn) && data.get(cn)==pn){
-             getAccountType();
+             getUserAccountType();
          }else
          System.out.println("\n" + "Wrong Customer Number or Pin Number" + "\n");
     }while(x==1);
   }
 
-  public void getAccountType(){
-    System.out.println("Select the Account you Want to Access: ");
-    System.out.println(" Type 1 - Checking Account");
-    System.out.println(" Type 2 - Saving Account");
+  public void getUserAccountType(){
+    System.out.println("Select the UserAccount you Want to Access: ");
+    System.out.println(" Type 1 - Checking UserAccount");
+    System.out.println(" Type 2 - Saving UserAccount");
     System.out.println(" Type 3 - Exit");
 
-    int selection= menuInput.nextInt();
+    int selectionOption= menuInput.nextInt();
 
-    switch (selection) {
+    switch (selectionOption) {
       case 1:
-      getChecking();
+      getCheckingAcc();
       break;
 
       case 2:
@@ -65,34 +65,34 @@ public class OptionMenu extends Account {
 
       default:
       System.out.println("\n" + "Invalid Choice." + "\n");
-      getAccountType();
+      getUserAccountType();
     }
   }
 
-  public void getChecking(){
-    System.out.println("Checking Account: ");
+  public void getCheckingAcc(){
+    System.out.println("Checking UserAccount: ");
     System.out.println(" Type 1 - View Balance");
     System.out.println(" Type 2 - Withdraw Funds");
     System.out.println(" Type 3 - Deposit Funds");
     System.out.println(" Type 4 - Exit");
     System.out.print("Choice: ");
 
-    int selection = menuInput.nextInt();
+    int selectionOption = menuInput.nextInt();
 
-    switch (selection) {
+    switch (selectionOption) {
       case 1:
-      System.out.println("Checking Account Balance: " + moneyFormat.format(getCheckingBalance()));
-      getAccountType();
+      System.out.println("Checking UserAccount Balance: " + moneyFormat.format(getCheckingAccAccBalance()));
+      getUserAccountType();
       break;
 
       case 2:
-      getCheckingWithdrawInput();
-      getAccountType();
+      getCheckingAccWithdrawInput();
+      getUserAccountType();
       break;
 
       case 3:
-      getCheckingDepositInput();
-      getAccountType();
+      getCheckingAccDepositInput();
+      getUserAccountType();
       break;
 
       case 4:
@@ -101,35 +101,35 @@ public class OptionMenu extends Account {
 
       default:
       System.out.println("\n" + "Invalid Choice." + "\n");
-      getChecking();
+      getCheckingAcc();
     }
   }
 
 
   public void getSaving(){
-    System.out.println("Saving Account: ");
+    System.out.println("Saving UserAccount: ");
     System.out.println(" Type 1 - View Balance");
     System.out.println(" Type 2 - Withdraw Funds");
     System.out.println(" Type 3 - Deposit Funds");
     System.out.println(" Type 4 - Exit");
     System.out.print("Choice: ");
 
-    int selection = menuInput.nextInt();
+    int selectionOption = menuInput.nextInt();
 
-    switch (selection) {
+    switch (selectionOption) {
       case 1:
-      System.out.println("Saving Account Balance: " + moneyFormat.format(getSavingBalance()));
-      getAccountType();
+      System.out.println("Saving UserAccount Balance: " + moneyFormat.format(getSavingAccBalance()));
+      getUserAccountType();
       break;
 
       case 2:
-      getsavingWithdrawInput();
-      getAccountType();
+      getsavingAccWithdrawInput();
+      getUserAccountType();
       break;
 
       case 3:
-      getSavingDepositInput();
-      getAccountType();
+      getSavingAccDepositInput();
+      getUserAccountType();
       break;
 
       case 4:
@@ -138,7 +138,7 @@ public class OptionMenu extends Account {
 
       default:
       System.out.println("\n" + "Invalid Choice." + "\n");
-      getChecking();
+      getCheckingAcc();
     }
   }
 

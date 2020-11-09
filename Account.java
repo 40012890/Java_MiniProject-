@@ -1,112 +1,123 @@
+ //ATM 
+import java.io.IOException;
+public class ATM extends MenuOption{
 
+  public static void main(String[] args) throws IOException {
+    MenuOption MenuOption= new MenuOption();
+
+    MenuOption.getLogin();
+  }
+
+};
+//UserAccount
 import java.text.DecimalFormat;
 import java.util.*;
 
-public class Account {
+public class UserAccount {
 
   Scanner input = new Scanner(System.in);
   DecimalFormat moneyFormat = new DecimalFormat("'$'###,##0.00");
 
-  public int setCustomerNumber(int customerNumber){
-    this.customerNumber = customerNumber;
-    return customerNumber;
+  public int setcustomerIDNumber(int customerIDNumber){
+    this.customerIDNumber = customerIDNumber;
+    return customerIDNumber;
   }
 
-  public int getCustomerNumber(){
-    return customerNumber;
+  public int getcustomerIDNumber(){
+    return customerIDNumber;
   }
 
-  public int setPinNumber(int pinNumber){
-    this.pinNumber = pinNumber;
-    return pinNumber;
+  public int setpinCodeNumber(int pinCodeNumber){
+    this.pinCodeNumber = pinCodeNumber;
+    return pinCodeNumber;
   }
 
-  public int getPinNumber(){
-    return pinNumber;
+  public int getpinCodeNumber(){
+    return pinCodeNumber;
   }
 
-  public double getCheckingBalance(){
-    return checkingBalance;
+  public double getCheckingAccAccBalance(){
+    return checkingAccBalance;
   }
 
-  public double getSavingBalance(){
-    return savingBalance;
+  public double getSavingAccBalance(){
+    return savingAccBal;
   }
 
-  public double calcCheckingWithdraw(double amount){
-    checkingBalance = (checkingBalance - amount);
-    return checkingBalance;
+  public double calcCheckingAccWithdraw(double AmountRs){
+    checkingAccBalance = (checkingAccBalance - AmountRs);
+    return checkingAccBalance;
   }
 
-  public double calcSavingWithdraw(double amount){
-    savingBalance = (savingBalance - amount);
-    return savingBalance;
+  public double calcSavingAccWithdraw(double AmountRs){
+    savingAccBal = (savingAccBal - AmountRs);
+    return savingAccBal;
   }
 
-  public double calcCheckingDeposit(double amount){
-    checkingBalance = (checkingBalance + amount);
-    return checkingBalance;
+  public double calcCheckingAccDeposit(double AmountRs){
+    checkingAccBalance = (checkingAccBalance + AmountRs);
+    return checkingAccBalance;
   }
 
-  public double calcSavingDeposit(double amount){
-    savingBalance = (savingBalance + amount);
-    return savingBalance;
+  public double calcSavingAccDeposit(double AmountRs){
+    savingAccBal = (savingAccBal + AmountRs);
+    return savingAccBal;
   }
 
-  public void getCheckingWithdrawInput(){
-    System.out.println("Checking Account Balance: " + moneyFormat.format(checkingBalance));
-    System.out.print("Amount you want to withdraw from Checking Account: ");
-    double amount =input.nextDouble();
+  public void getCheckingAccWithdrawInput(){
+    System.out.println("Checking UserAccount Balance: " + moneyFormat.format(checkingAccBalance));
+    System.out.print("AmountRs you want to withdraw from Checking UserAccount: ");
+    double AmountRs =input.nextDouble();
 
-    if((checkingBalance-amount)>=0){
-      calcCheckingWithdraw(amount);
-      System.out.println("New Checking Account Balance: " + moneyFormat.format(checkingBalance));
+    if((checkingAccBalance-AmountRs)>=0){
+      calcCheckingAccWithdraw(AmountRs);
+      System.out.println("New Checking UserAccount Balance: " + moneyFormat.format(checkingAccBalance));
       }else{
       System.out.println("Balance Cannot be Negative." + "\n");
       }
     }
 
-    public void getsavingWithdrawInput(){
-      System.out.println("Saving Account Balance: " + moneyFormat.format(savingBalance));
-      System.out.print("Amount you want to withdraw from saving Account: ");
-      double amount =input.nextDouble();
+    public void getsavingAccWithdrawInput(){
+      System.out.println("Saving UserAccount Balance: " + moneyFormat.format(savingAccBal));
+      System.out.print("AmountRs you want to withdraw from saving UserAccount: ");
+      double AmountRs =input.nextDouble();
 
-      if((savingBalance-amount)>=0){
-        calcSavingWithdraw(amount);
-        System.out.println("New saving Account Balance: " + moneyFormat.format(savingBalance));
+      if((savingAccBal-AmountRs)>=0){
+        calcSavingAccWithdraw(AmountRs);
+        System.out.println("New saving UserAccount Balance: " + moneyFormat.format(savingAccBal));
         }else{
         System.out.println("Balance Cannot be Negative." + "\n");
         }
       }
 
-      public void getCheckingDepositInput(){
-        System.out.println("Checking Account Balance: " + moneyFormat.format(checkingBalance));
-        System.out.print("Amount you want to Deposit from Checking Account: ");
-        double amount =input.nextDouble();
+      public void getCheckingAccDepositInput(){
+        System.out.println("Checking UserAccount Balance: " + moneyFormat.format(checkingAccBalance));
+        System.out.print("AmountRs you want to Deposit from Checking UserAccount: ");
+        double AmountRs =input.nextDouble();
 
-        if((checkingBalance+amount)>=0){
-          calcCheckingDeposit(amount);
-          System.out.println("New Checking Account Balance: " + moneyFormat.format(checkingBalance));
+        if((checkingAccBalance+AmountRs)>=0){
+          calcCheckingAccDeposit(AmountRs);
+          System.out.println("New Checking UserAccount Balance: " + moneyFormat.format(checkingAccBalance));
           }else{
           System.out.println("Balance Cannot be Negative." + "\n");
           }
         }
 
-        public void getSavingDepositInput(){
-          System.out.println("Saving Account Balance: " + moneyFormat.format(savingBalance));
-          System.out.print("Amount you want to Deposit from saving Account: ");
-          double amount =input.nextDouble();
+        public void getSavingAccDepositInput(){
+          System.out.println("Saving UserAccount Balance: " + moneyFormat.format(savingAccBal));
+          System.out.print("AmountRs you want to Deposit from saving UserAccount: ");
+          double AmountRs =input.nextDouble();
 
-          if((savingBalance+amount)>=0){
-            calcSavingDeposit(amount);
-            System.out.println("New saving Account Balance: " + moneyFormat.format(savingBalance));
+          if((savingAccBal+AmountRs)>=0){
+            calcSavingAccDeposit(AmountRs);
+            System.out.println("New saving UserAccount Balance: " + moneyFormat.format(savingAccBal));
             }else{
             System.out.println("Balance Cannot be Negative." + "\n");
             }
           }
 
-        private int customerNumber;
-        private int pinNumber;
-        private double checkingBalance = 0;
-        private double savingBalance = 0;
+        private int customerIDNumber;
+        private int pinCodeNumber;
+        private double checkingAccBalance = 0;
+        private double savingAccBal = 0;
 }
