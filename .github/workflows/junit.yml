@@ -39,4 +39,4 @@ jobs:
       - name: Compile
         run: |
           cd Implementation/
-          javac ATM.java MenuOption.class UserAccount.java
+          javac ATM.java MenuOption.java UserAccount.java
